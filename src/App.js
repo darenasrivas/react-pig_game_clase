@@ -5,7 +5,7 @@ import Player from './Player/Player'
 function App() {
   return (
     <main>
-      <Player name="Player1" score={43} current={0} isActive={true} />
+      <Player name="Player1" score={111} current={0} isActive={true} />
       <Player name="Player2" score={24} current={0} isActive={false} />
 
       <img src="dice-5.png" alt="Playing dice" className="dice" />
