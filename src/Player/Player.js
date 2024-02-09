@@ -1,4 +1,5 @@
 import './Player.css'
+import { useState } from 'react'
 
 // Componente Jugador
 // Recibe varias propiedades. Props = {name: 'Player 1', score: 43, current: 0, isActive:}
@@ -19,7 +20,7 @@ function Player({ name, score, current, isActive }) {
       <p className="score">{score}</p>
       <div className="current">
         <p className="current-label">Current</p>
-        <p className="current-score">{current}</p>
+        <p className="current-score">{current || 0}</p>
       </div>
     </section>
   )
