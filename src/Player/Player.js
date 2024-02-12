@@ -8,11 +8,16 @@ import { useState } from 'react'
 function Player({ name, score, current, isActive }) {
   //const { name, score, current, isActive } = props
 
-  const classPlayer = isActive
-    ? score > 100
+  const classPlayer =
+    score > 100
       ? 'player player--winner'
-      : 'player player--active'
-    : 'player'
+      : isActive
+      ? 'player player--active'
+      : 'player'
+
+  console.log(
+    `Renderizando el componenete Player para ${name} con la clase ${classPlayer} y un score de ${score}`
+  )
 
   return (
     <section className={classPlayer}>
