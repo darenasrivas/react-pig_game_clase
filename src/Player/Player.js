@@ -9,7 +9,7 @@ function Player({ name, score, current, isActive }) {
   //const { name, score, current, isActive } = props
 
   const classPlayer =
-    score > 100
+    score >= 100
       ? 'player player--winner'
       : isActive
       ? 'player player--active'

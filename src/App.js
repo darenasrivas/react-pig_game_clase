@@ -62,6 +62,8 @@ function App() {
     [diceNumber]
   )
 
+  const finishedPlaying = Math.max(...score) >= 100 ? true : false
+
   return (
     <main>
       <Player
@@ -81,7 +83,7 @@ function App() {
       />
 
       {diceNumber && (
-        // Si es falso no devuelve nada, cuando es todo verdadero, devuelve el texto de codigo
+        // Si es falso no devuelve nada, cuando es todo verdadero, devuelve el texto de codigo☕
         <img
           src={`dice-${diceNumber}.png`}
           alt="Playing dice"
@@ -92,10 +94,19 @@ function App() {
       <button className="btn btn--new" onClick={handleNewGame}>
         🔄 New game
       </button>
-      <button className="btn btn--roll" onClick={handleRollDice}>
+      <button
+        className="btn btn--roll"
+        onClick={handleRollDice}
+        disabled={finishedPlaying}
+      >
         🎲 Roll dice
       </button>
-      <button className="btn btn--hold" onClick={handleHold}>
+      <button
+        className="btn btn--hold"
+        onClick={handleHold}
+        disabled={finishedPlaying}
+        // Si es verdadero estará desabilitado
+      >
         📥 Hold
       </button>
     </main>
