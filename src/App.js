@@ -1,6 +1,6 @@
 import './App.css'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Player from './Player/Player'
 
@@ -21,7 +21,46 @@ function App() {
   const [score, setScores] = useState([0, 0])
   const [current, setCurrent] = useState(0)
   // Mandamos con el número, el número de la imagen del dado
-  const [diceNumber, setDiceNumber] = useState(3)
+  const [diceNumber, setDiceNumber] = useState(0)
+
+  const handleHold = () => {
+    setActivePlayer(activePlayer === 1 ? 2 : 1)
+    setCurrent(0)
+    // Para cambiar el score, se debe definir una variable nueva
+    // No modificar el array, si no que creamos uno nuevo.
+    // Saco los datos del array y los meto en uno nuevo
+    const newScore = [...score]
+    newScore[activePlayer - 1] += current
+    setScores(newScore)
+    setActivePlayer(activePlayer === 1 ? 2 : 1)
+    setCurrent(0)
+  }
+
+  const handleNewGame = () => {
+    setActivePlayer(1)
+    setCurrent(0)
+    setDiceNumber(0)
+    setScores([0, 0])
+  }
+  const handleRollDice = () => {
+    setDiceNumber(Math.floor(Math.random() * 6) + 1)
+  }
+
+  // Ver asincronia al recoger los datos
+
+  useEffect(
+    // Si el array está vacio, se ejecuta una sola vez
+    // Si hay algun dato, lo ejecutará cada vez y recogerá cada vez
+    () => {
+      if (diceNumber === 1) {
+        setActivePlayer((activePlayer) => (activePlayer === 1 ? 2 : 1))
+        setCurrent(0)
+      } else {
+        setCurrent((current) => current + diceNumber)
+      }
+    },
+    [diceNumber]
+  )
 
   return (
     <main>
@@ -50,9 +89,15 @@ function App() {
         />
       )}
 
-      <button className="btn btn--new">🔄 New game</button>
-      <button className="btn btn--roll">🎲 Roll dice</button>
-      <button className="btn btn--hold">📥 Hold</button>
+      <button className="btn btn--new" onClick={handleNewGame}>
+        🔄 New game
+      </button>
+      <button className="btn btn--roll" onClick={handleRollDice}>
+        🎲 Roll dice
+      </button>
+      <button className="btn btn--hold" onClick={handleHold}>
+        📥 Hold
+      </button>
     </main>
   )
 }
