@@ -62,7 +62,7 @@ function App() {
     [diceNumber]
   )
 
-  const finishedPlaying = Math.max(...score) >= 100 ? true : false
+  const finishedPlaying = Math.max(...score) >= 10 ? true : false
 
   return (
     <main>

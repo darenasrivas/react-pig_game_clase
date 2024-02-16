@@ -1,6 +1,6 @@
 {
   "name": "pig-game-react",
-  "homepage": "https://certweb.com/",
+  "homepage": "https://darenasrivas.github.io/react-pig_game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,11 +13,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "deploy": "rsync -ahv --exclude=.git --exclude=node_modules -e 'ssh -p 22123' ./ david@david.certweb.infenlaces.com:/home/david/david_siproxy/pig-game-react",
-    "build": "npm i minify -g",
+    "build": "react-scripts build",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
