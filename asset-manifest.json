@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-pig_game_clase/static/css/main.bc1b40ff.css",
+    "main.js": "/react-pig_game_clase/static/js/main.4d4e5acd.js",
+    "static/js/592.8ff8bae2.chunk.js": "/react-pig_game_clase/static/js/592.8ff8bae2.chunk.js",
+    "index.html": "/react-pig_game_clase/index.html",
+    "main.bc1b40ff.css.map": "/react-pig_game_clase/static/css/main.bc1b40ff.css.map",
+    "main.4d4e5acd.js.map": "/react-pig_game_clase/static/js/main.4d4e5acd.js.map",
+    "592.8ff8bae2.chunk.js.map": "/react-pig_game_clase/static/js/592.8ff8bae2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc1b40ff.css",
+    "static/js/main.4d4e5acd.js"
+  ]
+}
